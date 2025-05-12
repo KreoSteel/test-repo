@@ -9,7 +9,7 @@ body {
     align-items: center;
     height: 100vh;
     /* Ensure the body takes the full viewport height */
-    background-color: antiquewhite;
+    background-color: rgb(236, 215, 187);
 }
 
 .container {
@@ -25,17 +25,18 @@ body {
     width: 70%;
     height: 50%;
     border-radius: 20px;
-    box-shadow: 4px 7px 16px 1px rgb(240, 190, 65);
+    box-shadow: 4px 4px 18px 1px orange;
     transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out, scale 0.3s ease-out;
     background-color: orange;
     user-select: none;
+    cursor: pointer;
 
 }
 
 .item.active {
     scale: 1.05;
     background-color: rgb(255, 0, 0);
-    box-shadow: 4px 7px 16px 1px rgb(242, 141, 119);
+    box-shadow: 4px 4px 18px 1px rgb(226, 78, 78);
 }
 
 .cell {
