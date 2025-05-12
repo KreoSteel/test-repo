@@ -21,6 +21,10 @@ body {
     height: 50%;
     background-color: orange;
 }
+.item.active{
+    transition: all 0.3s ease-in-out;
+    background-color: aqua;
+}
 .cell{
     border: 3px solid black;
     display: flex;
