@@ -1,11 +1,49 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import Button from './components/ui/layout/Button/Button'
+import Button from './components/Button/Button'
+import { List } from './components/ui/List/List'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const reset = () => {
+    setCount(0)
+  }
+  const decrement10 = () => {
+    setCount((count) => count - 10)
+  }
+  const increment10 = () => {
+    setCount((count) => count + 10)
+  }
+  const decrement = (amount) => {
+    setCount((count) => count - amount)
+  }
+  const increment = (amount) => {
+    setCount((count) => count + amount)
+  }
+
+  let object = [
+    {
+      id: 1,
+      title: "title",
+      description: "description",
+      buttonText: "Click Me 1"
+    },
+    {
+      id: 2,
+      title: "title",
+      description: "description",
+      buttonText: "Click Me 2"
+    },
+    {
+      id: 3,
+      title: "title",
+      description: "description",
+      buttonText: "Click Me 3"
+
+    }
+  ]
 
   return (
     <>
@@ -19,18 +57,16 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <Button title>Chill</Button>
-        <Button>Text</Button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <div className="counter">
+          <Button onClick={reset}>Reset</Button>
+          <Button onClick={decrement10}>-10</Button>
+          <Button onClick={()=>decrement(5)}>-5</Button>
+          <h1>{count}</h1>
+          <Button onClick={()=>increment(5)}>+5</Button>
+          <Button onClick={increment10}>+10</Button>
+        </div>
+        <List objectList={object}></List>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
