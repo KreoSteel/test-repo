@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import Button from './components/Button/Button'
 import { List } from './components/ui/List/List'
 import Modal from './components/ui/layout/Modal/Modal'
+import ModalText from './components/ui/layout/Modal/Modal'
+import ModalConfirm from './components/ui/layout/Modal/ModalConfirm'
 import './App.css'
 
 function App() {
@@ -12,6 +14,14 @@ function App() {
     setIsOpen(!isOpen)
   }
 
+  const confirm = () => {
+    console.log("confirmed")
+    setIsOpen(false)
+  }
+  const decline = () => {
+    console.log("declined")
+    setIsOpen(false)
+  }
   const [count, setCount] = useState(0)
   const reset = () => {
     setCount(0)
@@ -74,7 +84,10 @@ function App() {
         </div>
         <List objectList={object}></List>
       </div>
-      <Modal opened={isOpen} toggleModal={toggleModal}></Modal>
+      <Modal opened={isOpen} toggleModal={toggleModal}>
+        <ModalText></ModalText>
+        <ModalConfirm confirm={toggleModal} decline={toggleModal}></ModalConfirm>
+      </Modal>
     </>
   )
 }
