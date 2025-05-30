@@ -3,9 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Button from './components/Button/Button'
 import { List } from './components/ui/List/List'
+import Modal from './components/ui/layout/Modal/Modal'
 import './App.css'
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleModal = () => {
+    setIsOpen(!isOpen)
+  }
+
   const [count, setCount] = useState(0)
   const reset = () => {
     setCount(0)
@@ -64,9 +70,11 @@ function App() {
           <h1>{count}</h1>
           <Button onClick={()=>increment(5)}>+5</Button>
           <Button onClick={increment10}>+10</Button>
+          <Button onClick={toggleModal} >Modal</Button>
         </div>
         <List objectList={object}></List>
       </div>
+      <Modal opened={isOpen} toggleModal={toggleModal}></Modal>
     </>
   )
 }
